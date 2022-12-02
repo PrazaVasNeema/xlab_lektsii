@@ -7,6 +7,9 @@ public class GameController : MonoBehaviour
 {
     [SerializeField]
     private StoneSpawner m_spawner;
+
+    [SerializeField]
+    private CloudController m_cloudController;
     public void Update()
     {
 
@@ -26,6 +29,12 @@ public class GameController : MonoBehaviour
                 }
 //                m_spawner?.Spawn(); Лучше не делать так,ибо происходит переопределение операторов, на деле компилятор может подумать, что тут еще не нулн
 
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+                Debug.Log("Z was pressed");
+                m_cloudController.Action();
         }
     }
 }
